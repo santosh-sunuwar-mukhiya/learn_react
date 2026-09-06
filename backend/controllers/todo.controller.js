@@ -3,11 +3,7 @@ import { Todo } from '../models/todo.model.js'
 export const getAllTodo = async (req, res) => {
     try {
         const todos = await Todo.find({})
-        if (!todos) {
-            res.status(404).json({success:false, message:'No Todos are Created!'})
-        }
-
-        res.status(200).json({success:true, message:todos})
+        res.status(200).json({ success: true, data: todos })
     } catch (err) {
         res.status(500).json({success:false, message:err.message})
     }
@@ -21,10 +17,7 @@ export const addTodo = async (req, res) => {
         }
 
         const data = await Todo.create({ todo })
-        data.save();
-        res.status(200).json({success:true, message:'Todo created successfully!'})
-
-        res.status(200).json({success:true, message:todo})
+        res.status(201).json({ success: true, data })
     } catch (err) {
         res.status(500).json({success:false, message:err.message})
     }

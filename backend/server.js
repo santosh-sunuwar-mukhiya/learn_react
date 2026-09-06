@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000
 
 const app = express()
 app.use(express.json())
-app.use(cors({ origin : process.env.FRONTEND_URL }))
+app.use(cors({ origin: process.env.FRONTEND_URL?.replace(/\/$/, '') }))
 
 app.use("/api/todo/", router);
 app.get("/", (req, res) => {
@@ -26,7 +26,7 @@ const startServer = async () => {
 })
         
     } catch (error) {
-        console.log('Database Connection Failed:', err.message);
+        console.log('Database Connection Failed:', error.message);
         process.exit(1);
     }
 }

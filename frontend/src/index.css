@@ -1,1 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import "tailwindcss";
+
+:root {
+    font-family: 'DM Sans', sans-serif;
+    color: #e2e8f0;
+    background: #07111f;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(14, 116, 144, 0.28), transparent 32rem),
+        radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.2), transparent 30rem),
+        #07111f;
+}
+
+h1,
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
