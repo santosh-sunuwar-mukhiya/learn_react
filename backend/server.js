@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 
 import connectDB from './config/db.js'
+import router from './routes/todo.routes.js'
 
 dotenv.config()
 
@@ -10,9 +11,9 @@ const PORT = process.env.PORT || 8000
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({ origin : process.env.FRONTEND_URL }))
 
-
+app.use("/api/todo/", router);
 app.get("/", (req, res) => {
     res.send('Hello world!')
 })
